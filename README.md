@@ -88,57 +88,7 @@ This creates a unique encryption key for your application.
 
 ---
 
-## ⚙️ Configuration
 
-### Step 1: Configure Database
-
-Open `.env` file and update database settings:
-
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=irrigation_db
-DB_USERNAME=root
-DB_PASSWORD=your_password_here
-```
-
-**Create the database:**
-
-```bash
-# Login to MySQL
-mysql -u root -p
-
-# Create database
-CREATE DATABASE irrigation_db;
-
-# Exit MySQL
-exit;
-```
-
-### Step 2: Configure Weather API (Optional)
-
-Get a free API key from [OpenWeatherMap](https://openweathermap.org/api):
-
-1. Sign up at https://openweathermap.org/api
-2. Get your API key
-3. Add to `.env`:
-
-```env
-OPENWEATHERMAP_API_KEY=your_api_key_here
-WEATHER_LATITUDE=36.8065
-WEATHER_LONGITUDE=10.1815
-```
-
-**Note:** Weather features work without API key but won't fetch real weather data.
-
-### Step 3: Configure Application URL
-
-```env
-APP_URL=http://localhost:8000
-```
-
----
 
 ## 🗄️ Database Setup
 
@@ -221,15 +171,15 @@ php artisan actions:process
 - Verifies action execution
 - Retries failed actions
 
-### Terminal 4: Start Rule Engine Evaluator (Optional)
+### Terminal 4: 
 
-For manual rule evaluation:
+For weather:
 
 ```bash
-php artisan rules:evaluate
+php artisan weather:check --lat=36.8065 --lon=10.1815
 ```
 
-**Note:** The simulator already triggers rule evaluation automatically, but you can run this separately if needed.
+
 
 ---
 
